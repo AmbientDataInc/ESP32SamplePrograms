@@ -9,3 +9,4 @@ ESP32のArduinoとMicropythonでセンサデーターを読み、[IoTデータ�
 * Arduino/Ambient_BME280: ArduinoでBME280のデーターをAmbientに送信するプログラム
 * Arduino/Ambient_BME280_ds: ArduinoでBME280のデーターをAmbientに送信するプログラムで、送信と送信の間をDeepSleepするバージョン
 * Micropython: MicropythonでBME280のデーターをAmbientに送信するプログラム
+* Python: Raspberry Pi上でAmbientから最新の温度、湿度を読み出し、熱中症の危険度を判定し、IFTTT経由でslackに通知するPythonプログラム
