@@ -54,7 +54,6 @@ void setup(){
     while ((ret = WiFi.status()) != WL_CONNECTED) {
         Serial.printf("> stat: %02x", ret);
         ret = WiFi.begin(ssid, password);  //  Wi-Fi APに接続
-        esp_wifi_set_max_tx_power(-4); // Wi-Fi出力を下げる
         i = 0;
         while ((ret = WiFi.status()) != WL_CONNECTED) {  //  Wi-Fi AP接続待ち
             delay(DELAY_CONNECTION);
@@ -66,10 +65,6 @@ void setup(){
             }
         }
     }
-
-    ret = esp_wifi_get_max_tx_power(&power);
-    Serial.print("get_max_tx_power: "); Serial.println(ret, HEX);
-    Serial.print("TX power: "); Serial.println(power);
 
     Serial.print("WiFi connected\r\nIP address: ");
     Serial.println(WiFi.localIP());
