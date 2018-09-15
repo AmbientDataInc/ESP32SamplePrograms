@@ -2,14 +2,14 @@
  * ESP32 or M5StackとBME280をI2C接続し、温度、湿度、気圧を測定しプリントアプトする
  * Boschライブラリーを使う
  */
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #include <M5Stack.h>
 #endif
 
 #include <Wire.h>
 #include "bme280_i2c.h"
 
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #define SDA 21
 #define SCL 22
 #else
@@ -20,7 +20,7 @@
 BME280 bme280(BME280_I2C_ADDR_PRIM);
 
 void setup(){
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
     M5.begin();
 #endif
     pinMode(SDA, INPUT_PULLUP); // SDAピンのプルアップの指定
@@ -43,4 +43,3 @@ void loop() {
 
     delay(3000);
 }
-
