@@ -2,7 +2,7 @@
  * ESP32 or M5StackでBME280を読み、Ambientに送り、DeepSleepする
  * Boschライブラリーを使う
  */
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #include <M5Stack.h>
 #endif
 #include <Wire.h>
@@ -17,7 +17,7 @@
 
 RTC_DATA_ATTR int bootCount = 0;
 
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #define SDA 21
 #define SCL 22
 #else
@@ -39,7 +39,7 @@ const char* writeKey = "writeKey"; // ライトキー
 void setup(){
     int8_t power;
 
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
     M5.begin();
 #endif
     pinMode(SDA, INPUT_PULLUP); // SDAピンのプルアップの指定
@@ -91,4 +91,3 @@ void setup(){
 
 void loop(){
 }
-

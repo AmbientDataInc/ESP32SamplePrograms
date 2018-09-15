@@ -2,7 +2,7 @@
  * ESP32でBME280を読み、Ambientに送り、DeepSleepする
  * 6回に1回Ambientに送信する
  */
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #include <M5Stack.h>
 #endif
 #include <Wire.h>
@@ -28,7 +28,7 @@ struct SensorData {
 };
 RTC_DATA_ATTR SensorData sensorData[SEND_CYCLE];
 
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #define SDA 21
 #define SCL 22
 #else
@@ -96,7 +96,7 @@ void sendDataToAmbient(time_t current) {
 void setup(){
     time_t t = millis();
 
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
     M5.begin();
 #endif
     pinMode(SDA, INPUT_PULLUP); // SDAピンのプルアップの指定
@@ -163,4 +163,3 @@ void setup(){
 
 void loop(){
 }
-

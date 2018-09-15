@@ -3,7 +3,7 @@
  * Ambientに送信する
  * Boschライブラリーを使う
  */
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #include <M5Stack.h>
 #endif
 
@@ -16,7 +16,7 @@
 
 #define DELAY_CONNECTION 100
 
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
 #define SDA 21
 #define SCL 22
 #else
@@ -36,7 +36,7 @@ unsigned int channelId = 100; // AmbientのチャネルID
 const char* writeKey = "writeKey"; // ライトキー
 
 void setup(){
-#ifdef ARDUINO_M5Stack-Core-ESP32
+#ifdef ARDUINO_M5Stack_Core_ESP32
     M5.begin();
 #endif
     pinMode(SDA, INPUT_PULLUP); // SDAピンのプルアップの指定
@@ -89,4 +89,3 @@ void loop() {
     t = (t < PERIOD * 1000) ? (PERIOD * 1000 - t) : 1;
     delay(t);
 }
-
